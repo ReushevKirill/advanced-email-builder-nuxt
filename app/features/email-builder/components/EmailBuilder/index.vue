@@ -1,0 +1,3 @@
+<template>
+  Email Builder
+</template>
