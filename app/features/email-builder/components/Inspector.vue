@@ -1,3 +1,3 @@
 <template>
-  Email Builder
+  Inspector
 </template>
