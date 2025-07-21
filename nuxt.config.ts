@@ -12,7 +12,7 @@ const featureDirs = readdirSync(featuresPath).filter(file =>
 export default defineNuxtConfig({
   compatibilityDate: '2025-07-15',
   devtools: { enabled: true },
-  modules: ['@nuxt/icon', '@nuxt/image', '@nuxtjs/tailwindcss'],
+  modules: ['@nuxt/icon', '@nuxt/image', '@nuxtjs/tailwindcss', '@pinia/nuxt'],
   components: [
     {
       path: '~/components',
@@ -20,14 +20,13 @@ export default defineNuxtConfig({
     },
     ...featureDirs.map(feature => ({
       path: `~/features/${feature}/components`,
-      pathPrefix: false,
+      pathPrefix: true,
     })),
   ],
   imports: {
     dirs: [
       'composables',
-      'store', // Глобальные сторы
-      // Для каждой фичи добавляем ее composables и store
+      'store',
       ...featureDirs.flatMap(feature => [
         `features/${feature}/composables`,
         `features/${feature}/store`,

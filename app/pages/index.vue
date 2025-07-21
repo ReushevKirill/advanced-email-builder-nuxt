@@ -21,13 +21,19 @@ const layout: EmailLayout = {
     },
   ],
 }
+
+function handleDrop() {
+  console.log('drop')
+}
 </script>
 
 <template>
   <div class="flex h-screen bg-gray-100">
     <Palette />
     <main class="flex-1 overflow-auto p-8">
-      <Canvas :layout="layout" />
+      <Droppable @drop="handleDrop">
+        <Canvas :layout="layout" />
+      </Droppable>
     </main>
   </div>
 </template>

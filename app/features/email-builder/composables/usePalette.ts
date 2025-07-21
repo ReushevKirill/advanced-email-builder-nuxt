@@ -1,16 +1,16 @@
-import type { PaletteItem } from '../types';
-import { BLOCK_TYPES } from '../types';
+import type { PaletteItem } from '../types'
+import { BLOCK_TYPES } from '../types'
 
 export const PALETTE_CONFIG: PaletteItem[] = [
   {
     type: BLOCK_TYPES.TEXT,
     label: 'Текст',
-    icon: 'mdi:format-text',
+    icon: 'zondicons:format-text-size',
   },
   {
     type: BLOCK_TYPES.IMAGE,
     label: 'Изображение',
-    icon: 'mdi:image-outline',
+    icon: 'material-symbols:add-photo-alternate-outline',
   },
   {
     type: BLOCK_TYPES.BUTTON,
@@ -22,4 +22,4 @@ export const PALETTE_CONFIG: PaletteItem[] = [
     label: 'Колонки',
     icon: 'mdi:view-column-outline',
   },
-];
+]

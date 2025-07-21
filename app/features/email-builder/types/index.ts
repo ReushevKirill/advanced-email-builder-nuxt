@@ -85,7 +85,7 @@ export interface EmailLayout {
 }
 
 export interface PaletteItem {
-  type: BlockType,
-  label: string,
+  type: BlockType
+  label: string
   icon: string
 }
