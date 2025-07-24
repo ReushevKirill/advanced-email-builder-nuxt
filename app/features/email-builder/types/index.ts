@@ -89,3 +89,11 @@ export interface PaletteItem {
   label: string
   icon: string
 }
+
+export type BlockDraggable = Pick<PaletteItem, 'type'>
+
+export const DND_GROUPS = {
+  BLOCKS: 'blocks',
+} as const
+
+export type DndGroups = (typeof DND_GROUPS)[keyof typeof DND_GROUPS]

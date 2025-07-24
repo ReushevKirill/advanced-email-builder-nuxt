@@ -3,7 +3,7 @@ import { BLOCK_TYPES } from '../types'
 
 function createTextBlock(): TextBlock {
   return {
-    id: useId(),
+    id: crypto.randomUUID(),
     type: BLOCK_TYPES.TEXT,
     props: {
       color: '',
@@ -15,7 +15,7 @@ function createTextBlock(): TextBlock {
 
 function createButtonBlock(): ButtonBlock {
   return {
-    id: useId(),
+    id: crypto.randomUUID(),
     type: BLOCK_TYPES.BUTTON,
     props: {
       text: 'Это кнопка',
@@ -26,7 +26,7 @@ function createButtonBlock(): ButtonBlock {
 
 function createImageBlock(): ImageBlock {
   return {
-    id: useId(),
+    id: crypto.randomUUID(),
     type: BLOCK_TYPES.IMAGE,
     props: {
       alt: 'Image Alt',
@@ -37,7 +37,7 @@ function createImageBlock(): ImageBlock {
 
 function createColumnBlock(): ColumnBlock {
   return {
-    id: useId(),
+    id: crypto.randomUUID(),
     type: BLOCK_TYPES.COLUMN,
     props: {
       backgroundColor: '',
@@ -58,11 +58,11 @@ const createBlocksMap: Record<BlockType, () => EmailBlock> = {
   [BLOCK_TYPES.COLUMN]: () => createColumnBlock(),
 }
 
-function createBlock(type: BlockType): EmailBlock | undefined {
+function createEmailBlock(type: BlockType): EmailBlock | undefined {
   if (!hasType(type))
-    return undefined
+    return
 
   return createBlocksMap[type]()
 }
 
-export { createBlock }
+export { createEmailBlock }

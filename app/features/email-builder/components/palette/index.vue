@@ -1,9 +1,4 @@
 <script lang="ts" setup>
-  const store = useEmailBuilderStore()
-
-const onStartHandler = (element) => {
-  console.log(element.value.dataset.blockType) 
-}
 </script>
 
 <template>
@@ -12,16 +7,12 @@ const onStartHandler = (element) => {
       Блоки
     </h2>
     <div class="grid grid-cols-2 gap-4">
-      <Draggable
-        @start="onStartHandler"
+      <PaletteItem
         v-for="item in PALETTE_CONFIG"
         :key="item.type"
         :data-block-type="item.type"
-      >
-        <PaletteItem
-          :item="item"
-        />
-      </Draggable>
+        :item="item"
+      />
     </div>
   </aside>
 </template>

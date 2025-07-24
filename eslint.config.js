@@ -16,6 +16,7 @@ export default antfu(
       'tailwindcss/classnames-order': 'warn',
       'tailwindcss/no-custom-classname': 'warn',
       'tailwindcss/no-contradicting-classname': 'error',
+      'no-useless-return': 'off',
     },
   },
 )

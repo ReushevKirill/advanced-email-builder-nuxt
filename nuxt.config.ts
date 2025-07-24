@@ -30,6 +30,7 @@ export default defineNuxtConfig({
       ...featureDirs.flatMap(feature => [
         `features/${feature}/composables`,
         `features/${feature}/store`,
+        `features/${feature}/utils`,
       ]),
     ],
   },

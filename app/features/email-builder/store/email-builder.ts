@@ -1,17 +1,24 @@
-import type { BlockType } from '../types'
-import { defineStore } from 'pinia'
+import type { EmailBlock, EmailLayout } from '../types'
 
-const useEmailBuilderStore = defineStore('email-builder', () => {
-  const draggableEl = ref<BlockType | ''>('')
+export const useEmailBuilderStore = defineStore('email-builder', () => {
+  const layout = ref<EmailLayout | null>(null)
 
-  function setDraggableEl(el: BlockType | '') {
-    draggableEl.value = el
+  const blocks = computed(() => layout.value?.blocks ?? [])
+
+  function initializeLayout(initialLayout: EmailLayout) {
+    layout.value = initialLayout
+  }
+
+  function addBlock(newBlock: EmailBlock) {
+    if (!layout.value)
+      return
+    layout.value.blocks.push(newBlock)
   }
 
   return {
-    draggableEl,
-    setDraggableEl,
+    layout,
+    blocks,
+    initializeLayout,
+    addBlock,
   }
 })
-
-export {useEmailBuilderStore}
